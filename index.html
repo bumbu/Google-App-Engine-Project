@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Le Go Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" style="padding-top: 40px;">
+      <div class="row">
+        <div class="span8 offset2">
+          <!-- <div class="alert"> -->
+          <div class="alert alert-error">
+          <!-- <div class="alert alert-success"> -->
+          <!-- <div class="alert alert-info"> -->
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Warning!</strong> Best check yo self, you're not looking too good.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <form class="form-horizontal">
+            <fieldset>
+              <legend>Upload form</legend>
+              <div class="control-group">
+                <label class="control-label" for="inputName">Name</label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="name" placeholder="Name">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputType">Type</label>
+                <div class="controls">
+                  <select id="inputType" name="type">
+                    <option value="file">File</option>
+                    <option value="blob">Blob</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <input type="file" name="file">
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn">Submit</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Uploaded</th>
+                  <th>Size</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>File</td>
+                  <td>23.05.2013</td>
+                  <td>1Mb</td>
+                  <td>
+                    <a class="btn btn-mini btn-info" type="button">Download</a>
+                    <a class="btn btn-mini btn-danger" type="button">Delete</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>File</td>
+                  <td>23.05.2013</td>
+                  <td>1Mb</td>
+                  <td>
+                    <a class="btn btn-mini btn-info" type="button">Download</a>
+                    <a class="btn btn-mini btn-danger" type="button">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery-2.0.2.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/application.js"></script>
+  </body>
+</html>
