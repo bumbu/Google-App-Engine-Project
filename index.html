@@ -14,17 +14,18 @@
   </head>
   <body>
     <div class="container" style="padding-top: 40px;">
+      {% if errors|length %}
       <div class="row">
         <div class="span8 offset2">
-          <!-- <div class="alert"> -->
-          <div class="alert alert-error">
-          <!-- <div class="alert alert-success"> -->
-          <!-- <div class="alert alert-info"> -->
+          {% for error in errors %}
+          <div class="alert alert-{{ error.type }}">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Warning!</strong> Best check yo self, you're not looking too good.
+            {{ error.message }}
           </div>
+          {% endfor %}
         </div>
       </div>
+      {% endif %}
     </div>
     <div class="container">
       <div class="row">
