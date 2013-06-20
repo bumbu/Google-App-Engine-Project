@@ -14,13 +14,13 @@
   </head>
   <body>
     <div class="container" style="padding-top: 40px;">
-      {% if errors|length %}
+      {% if messages|length %}
       <div class="row">
         <div class="span8 offset2">
-          {% for error in errors %}
-          <div class="alert alert-{{ error.type }}">
+          {% for message in messages %}
+          <div class="alert alert-{{ message.type }}">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ error.message }}
+            {{ message.text }}
           </div>
           {% endfor %}
         </div>

@@ -14,21 +14,21 @@ JINJA_ENVIRONMENT = jinja2.Environment(
   extensions=['jinja2.ext.autoescape'])
 
 """
-  erros: an arrary of objects. each object have a type and a message.
-  errors = [
-    {'type': '', 'message': 'You have an alert'}
-  , {'type': 'error', 'message': 'You have an error'}
-  , {'type': 'success', 'message': 'You have an success'}
-  , {'type': 'info', 'message': 'You have an info'}
+  messages: an arrary of objects. each object have a type and a text.
+  messages = [
+    {'type': '', 'text': 'You have an alert'}
+  , {'type': 'error', 'text': 'You have an error'}
+  , {'type': 'success', 'text': 'You have an success'}
+  , {'type': 'info', 'text': 'You have an info'}
   ]
 """
 
 class MainPage(webapp2.RequestHandler):
   def get(self):
-    errors = []
+    messages = []
 
     template_values = {
-      'errors': errors
+      'messages': messages
     }
 
     template = JINJA_ENVIRONMENT.get_template('index.html')
