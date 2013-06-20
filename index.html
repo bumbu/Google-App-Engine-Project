@@ -79,28 +79,19 @@
                 </tr>
               </thead>
               <tbody>
+                {% for upload in uploads %}
                 <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>File</td>
-                  <td>23.05.2013</td>
-                  <td>1Mb</td>
+                  <td>{{ upload.id }}</td>
+                  <td>{{ upload.name }}</td>
+                  <td>{{ upload.type }}</td>
+                  <td>{{ upload.date }}</td>
+                  <td>{{ upload.size }}</td>
                   <td>
                     <a class="btn btn-mini btn-info" type="button">Download</a>
                     <a class="btn btn-mini btn-danger" type="button">Delete</a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>File</td>
-                  <td>23.05.2013</td>
-                  <td>1Mb</td>
-                  <td>
-                    <a class="btn btn-mini btn-info" type="button">Download</a>
-                    <a class="btn btn-mini btn-danger" type="button">Delete</a>
-                  </td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
         </div>

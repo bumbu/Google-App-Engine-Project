@@ -21,14 +21,27 @@ JINJA_ENVIRONMENT = jinja2.Environment(
   , {'type': 'success', 'text': 'You have an success'}
   , {'type': 'info', 'text': 'You have an info'}
   ]
+
+  uploads:
+  uploads = [
+    {
+      'id': 1
+    , 'name': 'Some name'
+    , 'type': 'file'
+    , 'date': '23.05.2013'
+    , 'size': '32768'
+    }
+  ]
 """
 
 class MainPage(webapp2.RequestHandler):
   def get(self):
     messages = []
+    uploads = []
 
     template_values = {
       'messages': messages
+    , 'uploads': uploads
     }
 
     template = JINJA_ENVIRONMENT.get_template('index.html')
