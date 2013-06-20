@@ -42,7 +42,7 @@
               <div class="control-group">
                 <label class="control-label" for="inputType">Type</label>
                 <div class="controls">
-                  <select id="inputType" name="type">
+                  <select id="inputType" name="storage_type">
                     <option value="file">File</option>
                     <option value="blob">Blob</option>
                   </select>
@@ -81,9 +81,9 @@
               <tbody>
                 {% for upload in uploads %}
                 <tr>
-                  <td>{{ upload.id }}</td>
+                  <td>{{ upload.key }}</td>
                   <td>{{ upload.name }}</td>
-                  <td>{{ upload.type }}</td>
+                  <td>{{ upload.storage_type }}</td>
                   <td>{{ upload.date }}</td>
                   <td>{{ upload.size }}</td>
                   <td>

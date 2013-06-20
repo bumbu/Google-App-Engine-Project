@@ -25,22 +25,37 @@ JINJA_ENVIRONMENT = jinja2.Environment(
   uploads:
   uploads = [
     {
-      'id': 1
+      'key': 1
     , 'name': 'Some name'
-    , 'type': 'file'
+    , 'storage_type': 'file'
     , 'date': '23.05.2013'
     , 'size': '32768'
     }
   ]
 """
 
+def parent_entity():
+  return ndb.Key('Uploads', 'uploads')
+
+class Upload(ndb.Model):
+  key = ndb.IntegerProperty()
+  name = ndb.StringProperty(indexed=False)
+  storage_type = ndb.StringProperty(required=True, choices=set(["file", "blob"]))
+  date = ndb.DateTimeProperty(auto_now_add=True)
+  size = ndb.IntegerProperty()
+
 class MainPage(webapp2.RequestHandler):
   def get(self):
-    messages = []
-    uploads = []
+    try:
+      self.messages
+    except:
+      self.messages = []
+
+    uploads_query = Upload.query(ancestor=parent_entity()).order(-Upload.date)
+    uploads = uploads_query.fetch(20)
 
     template_values = {
-      'messages': messages
+      'messages': self.messages
     , 'uploads': uploads
     }
 
@@ -51,6 +66,18 @@ class MainPage(webapp2.RequestHandler):
     # name
     # type
     # file
+
+    upload = Upload(parent=parent_entity())
+    previous_uploads = Upload.query(ancestor=parent_entity()).order(-Upload.date).fetch(1)
+
+    upload.key = previous_uploads[0].key + 1 if len(previous_uploads) else 1
+    upload.name = self.request.get('name')
+    upload.storage_type = self.request.get('storage_type')
+    upload.size = 32768
+    upload.put()
+
+    # if success
+    self.messages = [{'type': 'success', 'text': 'You have successfuly uploaded a file'}]
 
     self.get()
 
