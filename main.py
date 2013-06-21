@@ -90,7 +90,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
       upload.key = previous_uploads[0].key + 1 if len(previous_uploads) else 1
       upload.name = self.request.get('name')
       upload.quality_type = self.request.get('quality_type')
-      upload.size = 32768
+      upload.size = blob_info.size
       upload.blob = blob_info.key()
       upload.put()
 
