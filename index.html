@@ -30,7 +30,7 @@
     <div class="container">
       <div class="row">
         <div class="span8 offset2">
-          <form class="form-horizontal" action="/" method="post" enctype="multipart/form-data">
+          <form class="form-horizontal" action="{{ upload_url }}" method="post" enctype="multipart/form-data">
             <fieldset>
               <legend>Upload form</legend>
               <div class="control-group">
@@ -42,9 +42,9 @@
               <div class="control-group">
                 <label class="control-label" for="inputType">Type</label>
                 <div class="controls">
-                  <select id="inputType" name="storage_type">
-                    <option value="file">File</option>
-                    <option value="blob">Blob</option>
+                  <select id="inputType" name="quality_type">
+                    <option value="Good">Good</option>
+                    <option value="Bad">Bad</option>
                   </select>
                 </div>
               </div>
@@ -83,11 +83,11 @@
                 <tr>
                   <td>{{ upload.key }}</td>
                   <td>{{ upload.name }}</td>
-                  <td>{{ upload.storage_type }}</td>
+                  <td>{{ upload.quality_type }}</td>
                   <td>{{ upload.date }}</td>
                   <td>{{ upload.size }}</td>
                   <td>
-                    <a class="btn btn-mini btn-info" type="button">Download</a>
+                    <a href="/download/{{ upload.blob }}" class="btn btn-mini btn-info" type="button">Download</a>
                     <a class="btn btn-mini btn-danger" type="button">Delete</a>
                   </td>
                 </tr>
@@ -101,9 +101,9 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery-2.0.2.min.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/application.js"></script>
+    <script src="/assets/js/jquery-2.0.2.min.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/application.js"></script>
   </body>
 </html>
 {% endautoescape %}
